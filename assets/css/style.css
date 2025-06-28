@@ -1,0 +1,8 @@
+/* ===================== BANNER INDEX ===================== */
+.banner-ciberseguridad {
+    background-image: url('../img/ciberseguridad.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 20vh; /* Altura visible en pantalla */
+    padding: 20px;
+}
