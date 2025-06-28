@@ -8,8 +8,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- CSS del proyecto-->
     <link rel="stylesheet" href="assets/css/style.css">
-    <!-- Font Awesome para íconos -->
-    <script src="https://kit.fontawesome.com/3432f07c5e.js" crossorigin="anonymous"></script>
 </head>
 <body class="bg-body-tertiary">
     <!-- =================== HEADER =================== -->
@@ -39,15 +37,108 @@
     </header>
     <!-- =================== MAIN =================== -->
     <main>
+        <div class="container text-center mt-5">
+            <h1>Amenazas comunes en ciberseguridad</h1>
+            <p>
+                A continuación, te presentamos algunas de las amenazas más comunes que enfrentan los usuarios y organizaciones:
+            </p>
+        
+        </div>
+        <div id="carruselInformativo" class="carousel slide mt-5" data-bs-ride="carousel">
+            <div class="carousel-inner">
 
+                <!-- Slide 1 -->
+                <div class="carousel-item active">
+                    <div class="card mx-auto" style="width: 25rem;">
+                        <img src="assets/img/phishing.webp" class="card-img-top" alt="Phishing">
+                        <div class="card-body">
+                        <h5 class="card-title">Phishing</h5>
+                        <p class="card-text">
+                            Consiste en engañar al usuario para que entregue información confidencial (como contraseñas o datos bancarios), generalmente a través de correos electrónicos falsos que parecen provenir de fuentes confiables.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 2 -->
+                <div class="carousel-item">
+                    <div class="card mx-auto" style="width: 25rem;">
+                        <img src="assets/img/ransomware-remoto.webp" class="card-img-top" alt="Ransomware">
+                        <div class="card-body">
+                        <h5 class="card-title">Ransomware</h5>
+                        <p class="card-text">
+                            Es un tipo de malware que cifra los archivos del usuario y exige un rescate (ransom) para liberarlos. Puede propagarse por descargas, correos o enlaces maliciosos.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 3 -->
+                <div class="carousel-item">
+                    <div class="card mx-auto" style="width: 25rem;">
+                        <img src="assets/img/malware.webp" class="card-img-top" alt="Malware">
+                        <div class="card-body">
+                        <h5 class="card-title">Malware</h5>
+                        <p class="card-text">
+                            Abreviatura de malicious software, es un software diseñado para dañar, robar o causar un mal funcionamiento en sistemas informáticos. Incluye virus, troyanos, spyware y gusanos.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 4 -->
+                <div class="carousel-item">
+                    <div class="card mx-auto" style="width: 25rem;">
+                        <img src="assets/img/ddos.jpg" class="card-img-top" alt="DDos">
+                        <div class="card-body">
+                        <h5 class="card-title">Ataques DDoS (Denegación de Servicio Distribuido)</h5>
+                        <p class="card-text">
+                            Consisten en saturar un servidor con múltiples solicitudes falsas desde diferentes dispositivos infectados, dejando fuera de servicio sitios web o aplicaciones.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 5 -->
+                <div class="carousel-item">
+                    <div class="card mx-auto" style="width: 25rem;">
+                        <img src="assets/img/spyware.png" class="card-img-top" alt="Spyware">
+                        <div class="card-body">
+                        <h5 class="card-title">Spyware</h5>
+                        <p class="card-text">
+                            Programa que se instala sin permiso para espiar tu actividad, como lo que escribes o las páginas que visitas. Puede usarse para robar contraseñas o monitorear tus hábitos.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Slide 6 -->
+                <div class="carousel-item">
+                    <div class="card mx-auto" style="width: 25rem;">
+                        <img src="assets/img/keylogger.jpeg" class="card-img-top" alt="Keylogger">
+                        <div class="card-body">
+                        <h5 class="card-title">Keylogger</h5>
+                        <p class="card-text">
+                            Software que registra todo lo que escribes en tu teclado (como tus contraseñas o mensajes) y lo envía a un atacante.
+                        </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Controles -->
+            <button class="carousel-control-prev" type="button" data-bs-target="#carruselInformativo" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                <span class="visually-hidden">Anterior</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carruselInformativo" data-bs-slide="next">
+                <span class="carousel-control-next-icon bg-dark rounded-circle" aria-hidden="true"></span>
+                <span class="visually-hidden">Siguiente</span>
+            </button>
+        </div>
     </main>
-    <!-- =================== FOOTER =================== -->
-    <footer>
-
-    </footer>
     <!-- Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-    <script src="assets/js/script.js"></script>
 </body>
 </html>
