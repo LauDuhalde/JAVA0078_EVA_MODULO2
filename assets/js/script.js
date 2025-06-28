@@ -1,46 +1,71 @@
 $(document).ready(function () {
-  // SE HACE CLICK EN EL BOTÓN RESERVA Y AUTOMATICAMENTE SALE EL NOMBRE DE LA PELICULA QUE SE ESTÁ DESEANDO RESERVAR
-  $('.btn-reserva').click(function () {
-    const titulo = $(this).closest('.card').find('.card-title').text();
-    $('#pelicula').val(titulo);
-  });
-
-  // VALIDACIÓN + MENSAJE DE LA RESERVA
-  $('#formReserva').submit(function (e) {
+  // VALIDACIÓN FORMULARIO DE CONTACTO
+  $('#formContacto').submit(function (e) {
     e.preventDefault(); // Evita el envío real
 
-    const tarjeta = $('#tarjeta').val().trim();
-    const cvv = $('#cvv').val().trim();
+    const correo = $('#email').val().trim();
 
-    // VALIDACIÓN DE TARJETA , QUE TENGA 16 DIGITOS
-    if (!/^\d{16}$/.test(tarjeta)) {
-      alert("El número de tarjeta debe tener exactamente 16 dígitos.");
-      return;
+    // Expresión regular para validar email simple
+    const emailValido = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+    // Validación de email
+    if (!emailValido.test(correo)) {
+        alert('Por favor ingresa un correo electrónico válido.');
+        return;
     }
 
-    // VALIDAR QUE EL CODIGO CVV TENGA 3 DIGITOS
-    if (!/^\d{3}$/.test(cvv)) {
-      alert("El CVV debe tener exactamente 3 dígitos.");
-      return;
-    }
+    // Se muestra mensaje de contacto exitoso
+    $('#mensajeExito').removeClass('d-none');
 
-    const ultimos4 = tarjeta.slice(-4);
-
-    // USO DE ICONOS FONT AWESOME - PARA VALIDACIÓN DEL MENSAJE DE COMPRA
-    const mensajeHTML = `
-      <h5><i class="fa-solid fa-circle-check text-success"></i> Reserva exitosa</h5>
-      <p><i class="fa-solid fa-clapperboard"></i> <strong>Película:</strong> ${$('#pelicula').val()}</p>
-      <p><i class="fa-solid fa-clock"></i> <strong>Horario:</strong> ${$('#horario').val()}</p>
-      <p><i class="fa-solid fa-chair"></i> <strong>Asientos:</strong> ${$('#asientos').val()}</p>
-      <p><i class="fa-solid fa-credit-card"></i> <strong>Tarjeta:</strong> **** **** **** ${ultimos4}</p>
-      <p>¡Gracias por su compra!</p>
-    `;
-
-    // MENSAJE DE COMPRA
-    $('#mensajeExito').html(mensajeHTML).removeClass('d-none');
-
-    // LIMPIA FORMULARIO
+    // Limpia formulario
     this.reset();
-    $('#modalReserva').modal('hide');
   });
+
+  //TEST DE SEGURIDAD
+  $('#formTestSeguridad').submit(function (e) {
+      e.preventDefault(); // Evita el envío real
+
+      const correctas = { //Respuestas correctas
+        p1: 'a',
+        p2: 'c',
+        p3: 'a'
+      };
+
+      let puntaje = 0;
+      let faltantes = false;
+
+      // Validar respuestas seleccionadas
+      $.each(correctas, function (pregunta, respuestaCorrecta) {
+        const seleccionada = $('input[name="'+pregunta+'"]:checked').val();
+        if (!seleccionada) {
+          faltantes = true;
+        } else if (seleccionada === respuestaCorrecta) {
+          puntaje++;
+        }
+      });
+
+      const $resultado = $('#resultadoTest');
+
+      if (faltantes) {
+        $resultado
+          .text('Por favor responde todas las preguntas antes de enviar.')
+          .removeClass('text-success text-danger')
+          .addClass('text-warning')
+          .show();
+      } else {
+        if (puntaje === 3) {
+          $resultado
+            .text('¡Excelente! Has respondido todo correctamente.')
+            .removeClass('text-danger text-warning')
+            .addClass('text-success')
+            .show();
+        } else {
+          $resultado
+            .text(`Has respondido correctamente ${puntaje} de 3 preguntas. ¡Sigue aprendiendo!`)
+            .removeClass('text-success text-warning')
+            .addClass('text-danger')
+            .show();
+        }
+      }
+    });
 });
